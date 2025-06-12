@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 gy-3">
+    @for (field of fields; let i = $index; track field.name) {
+      @let fieldIsInvalid = field.formControl.invalid && (field.formControl.dirty || field.formControl.touched);
+
+      <div class="col">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="{{ field.label + (field.mandatory ? '*' : '') }}"
+          [formControl]="field.formControl"
+          [class.is-invalid]="fieldIsInvalid"
+          (blur)="onBlur()"
+          (input)="onInput(field.name, $event)"
+          (keydown)="onKeyDown($event)"
+        >
+
+        @if (fieldIsInvalid) {
+          <lib-form-control-error>
+            @if (field.formControl.errors?.['required']) {
+              Field is mandatory.
+            }
+            @if (field.formControl.errors?.['minLength']) {
+              Field "{{ field.label }}" needs at least {{ field.formControl.errors!['minLength'] }} letters.
+            }
+          </lib-form-control-error>
+        }
+      </div>
+    }
+  </div>
+</div>

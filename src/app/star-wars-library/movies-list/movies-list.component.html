@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 gy-4">
+    @if (matchedMovies(); as movies) {
+      @for (movie of movies; track movie.title) {
+        <div class="col">
+          <div class="card">
+            <div class="card-header" [class.text-bg-success]="movie.matchesSearchQuery">
+              {{ movie.title }}
+            </div>
+            <ul class="list-group">
+              <li class="list-group-item">Producer: {{ movie.producer }}</li>
+              <li class="list-group-item">Director: {{ movie.director }}</li>
+            </ul>
+          </div>
+        </div>
+      }
+    }
+  </div>
+</div>
