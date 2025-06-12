@@ -1,0 +1,11 @@
+<div class="mt-5 w-100 d-flex justify-content-center">
+  <div class="w-75">
+    <app-movies-search-form (searchQuery)="onNewSearchQuery($event)"></app-movies-search-form>
+
+    <hr />
+
+    @if (movies$ | async; as movies) {
+      <app-movies-list [movies]="movies" [searchQuery]="searchQuery"></app-movies-list>
+    }
+  </div>
+</div>
