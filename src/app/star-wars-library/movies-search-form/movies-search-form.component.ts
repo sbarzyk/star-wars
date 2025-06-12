@@ -21,10 +21,9 @@ export class MoviesSearchFormComponent {
 
   onSubmit(): void {
     if (this.form.invalid) {
-      this.form.markAllAsTouched();
-      this.form.controls.searchQuery.updateValueAndValidity();
       return;
     }
+
     if (this.form.value.searchQuery != null) {
       this.searchQuery.emit(this.form.value.searchQuery);
     }
