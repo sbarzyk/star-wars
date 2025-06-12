@@ -15,9 +15,7 @@ export class MoviesSearchFormComponent {
   readonly formUpdateOn = FormUpdateOn.blur;
   readonly movieSearchFieldConfigurations: SearchFieldConfiguration[] = MOVIE_SEARCH_FIELD_CONFIGURATIONS;
 
-  readonly form = new FormGroup<{
-    searchQuery: FormControl<SearchQuery | null>;
-  }>({
+  readonly form = new FormGroup<{ searchQuery: FormControl<SearchQuery | null> }>({
     searchQuery: new FormControl<SearchQuery | null>(null, { updateOn: this.formUpdateOn }),
   });
 
