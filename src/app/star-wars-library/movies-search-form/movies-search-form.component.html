@@ -6,6 +6,6 @@
     class="mt-3"></lib-search-fields>
 
   <div class="w-100 mt-3 pe-2 d-flex justify-content-end">
-    <input class="btn btn-outline-primary" type="submit" value="Search" (keyup.enter)="onSubmit()" />
+    <input class="btn btn-outline-primary" type="submit" value="Search" (keyup.enter)="onSubmit()" [disabled]="form.invalid" />
   </div>
 </form>
